@@ -1,12 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Clothing Brand</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #fff;
+            width: 220px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        button {
+            background: #000;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #444;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Welcome to My Brand</h1>
-    <p>Our collection is coming soon</p>
+    <header>
+        <h1>My Clothing Brand</h1>
+    </header>
+
+    <section class="hero">
+        <h2>New Collection</h2>
+        <p>Trendy outfits just for you</p>
+    </section>
+
+    <section class="products">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/220" alt="Black Dress">
+            <h3>Black Dress</h3>
+            <p>₹999</p>
+            <button>Order Now</button>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/220" alt="White Top">
+            <h3>White Top</h3>
+            <p>₹699</p>
+            <button>Order Now</button>
+        </div>
+
+    </section>
 
 </body>
+
 </html>
