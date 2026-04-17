@@ -6,6 +6,9 @@
 <title>LASPR Clothing</title>
 
 <style>
+    html {
+    scroll-behavior: smooth;
+}
 body { margin:0; font-family:Arial; background:#f5f5f5; }
 
 nav {
@@ -79,14 +82,14 @@ nav ul { display:flex; gap:20px; list-style:none; }
 </div>
 
 <div class="categories">
-    <div class="cat">Shiv Collection</div>
-    <div class="cat">Basic Tees</div>
-    <div class="cat">Hoodies</div>
+    <a href="#shiv" class="cat">Shiv Collection</a>
+    <a href="#basic" class="cat">Basic Tees</a>
+   <a href="#hoodies" class="cat">Hoodies</a> 
 </div>
 
 <!-- 🔱 SHIV COLLECTION -->
 <div class="products">
-<h2 style="text-align:center;">Shiv Collection</h2>
+<h2 id="shiv" style="text-align:center;">Shiv Collection</h2>
 
 <div class="product-grid">
 
@@ -123,7 +126,7 @@ Buy on Amazon
 
 <!-- 👕 BASIC TEES -->
 <div class="products">
-<h2 style="text-align:center;">Basic Tees</h2>
+<h2 id="basic" style="text-align:center;">Basic Tees</h2>
 
 <div class="product-grid">
 
@@ -146,7 +149,7 @@ Buy on Amazon
 
 <!-- 🧥 HOODIES -->
 <div class="products">
-<h2 style="text-align:center;">Hoodies</h2>
+<h2 id="hoodies" style="text-align:center;">Hoodies</h2>
 
 <div class="product-grid">
 
