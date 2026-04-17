@@ -8,12 +8,18 @@
 <style>
     .banner {
     position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+    position: relative;
 }
 
-.banner img {
+..banner img {
     width: 100%;
     height: 400px;
+    display: block;
     object-fit: cover;
+}
 }
 
 .banner-text {
@@ -56,7 +62,9 @@ nav {
 
 nav ul { display:flex; gap:20px; list-style:none; }
 
-.hero { text-align:center; padding:40px; }
+.hero {
+    display: none;
+}{ text-align:center; padding:40px; }
 
 .categories {
     display:flex; gap:15px;
