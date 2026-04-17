@@ -4,28 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Clothing Brand</title>
+    <title>LASPR Clothing</title>
 
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background: #f5f5f5;
         }
 
-        header {
-            background-color: #000;
+        nav {
+            background: #000;
             color: #fff;
-            text-align: center;
-            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
         }
 
         .hero {
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px;
         }
 
-        .products {
+        .categories {
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -33,13 +40,31 @@
             flex-wrap: wrap;
         }
 
+        .cat {
+            background: #000;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .products {
+            padding: 20px;
+        }
+
+        .product-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .card {
             background: #fff;
             width: 240px;
             padding: 15px;
-            border-radius: 12px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         .card img {
@@ -47,63 +72,76 @@
             border-radius: 10px;
         }
 
-        h3 {
-            margin: 10px 0 5px;
-        }
-
-        p {
-            margin: 5px 0 15px;
-        }
-
         .btn {
-            display: inline-block;
-            background: #000;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 6px;
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
             text-decoration: none;
+            border-radius: 5px;
         }
 
-        .btn:hover {
-            background: #444;
+        .whatsapp {
+            background: green;
+            color: white;
+        }
+
+        .amazon {
+            background: orange;
+            color: white;
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>My Clothing Brand</h1>
-    </header>
+    <!-- Navbar -->
+    <nav>
+        <h2>LASPR</h2>
+        <ul>
+            <li>Home</li>
+            <li>Categories</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
 
-    <section class="hero">
-        <h2>New Collection</h2>
-        <p>Trendy outfits just for you</p>
-    </section>
+    <!-- Hero -->
+    <div class="hero">
+        <h1>Spiritual Streetwear</h1>
+        <p>Wear Your Energy</p>
+    </div>
 
-    <section class="products">
+    <!-- Categories -->
+    <div class="categories">
+        <div class="cat">Shiv Collection</div>
+        <div class="cat">Basic Tees</div>
+        <div class="cat">Hoodies</div>
+        <div class="cat">Custom Prints</div>
+    </div>
 
-        <!-- Product 1 -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1542060748-10c28b62716f?w=300" alt="Black Dress">
-            <h3>Black Dress</h3>
-            <p>₹999</p>
-            <a class="btn" href="https://wa.me/9873407149?text=Hi, I want to order Black Dress" target="_blank">
-                Order Now
-            </a>
+    <!-- Products -->
+    <div class="products">
+
+        <h2 style="text-align:center;">Shiv Collection</h2>
+
+        <div class="product-grid">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1542060748-10c28b62716f?w=300">
+                <h3>Shiv T-Shirt</h3>
+                <p>₹799</p>
+
+                <a class="btn whatsapp" href="https://wa.me/9873407149?text=Order Shiv T-Shirt" target="_blank">
+                    Order on WhatsApp
+                </a>
+
+                <a class="btn amazon" href="https://www.amazon.in/s?rh=n%3A1571271031%2Cp_4%3ALASPR%2BLifestyle%2BCreations&ref=bl_sl_s_ap_web_1571271031" target="_blank">
+                    Buy on Amazon
+                </a>
+            </div>
+
         </div>
 
-        <!-- Product 2 -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300" alt="White Top">
-            <h3>White Top</h3>
-            <p>₹699</p>
-            <a class="btn" href="https://wa.me/9873407149?text=Hi, I want to order White Top" target="_blank">
-                Order Now
-            </a>
-        </div>
-
-    </section>
+    </div>
 
 </body>
 
