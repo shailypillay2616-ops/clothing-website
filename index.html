@@ -33,21 +33,28 @@ nav ul { display:flex; gap:20px; list-style:none; }
     border-radius:8px;
 }
 
-.products { padding:20px; }
+.products {
+    padding: 40px 20px;
+}
 
 .product-grid {
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    justify-content:center;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
-    background:#fff;
-    width:240px;
-    padding:15px;
-    border-radius:10px;
-    text-align:center;
+ .card:hover {
+    transform: scale(1.05);
+}   
+    background: #fff;
+    width: 260px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
 .card img { width:100%; border-radius:10px; }
