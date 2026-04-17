@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Clothing Brand</title>
+    <title>Laspr Lifestyles creations</title>
 
     <style>
         body {
@@ -35,11 +35,11 @@
 
         .card {
             background: #fff;
-            width: 220px;
+            width: 240px;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .card img {
@@ -47,16 +47,24 @@
             border-radius: 10px;
         }
 
-        button {
-            background: #000;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
+        h3 {
+            margin: 10px 0 5px;
         }
 
-        button:hover {
+        p {
+            margin: 5px 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
             background: #444;
         }
     </style>
@@ -65,7 +73,7 @@
 <body>
 
     <header>
-        <h1>My Clothing Brand</h1>
+        <h1>Laspr Lifestyles creations</h1>
     </header>
 
     <section class="hero">
@@ -75,18 +83,24 @@
 
     <section class="products">
 
+        <!-- Product 1 -->
         <div class="card">
-           <img src="https://images.unsplash.com/photo-1542060748-10c28b62716f?w=300" alt="Dress">
+            <img src="https://images.unsplash.com/photo-1542060748-10c28b62716f?w=300" alt="Black Dress">
             <h3>Black Dress</h3>
             <p>₹999</p>
-            <button>Order Now</button>
+            <a class="btn" href="https://wa.me/919876543210?text=Hi, I want to order Black Dress" target="_blank">
+                Order Now
+            </a>
         </div>
 
+        <!-- Product 2 -->
         <div class="card">
-         <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300" alt="Top">  
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300" alt="White Top">
             <h3>White Top</h3>
             <p>₹699</p>
-            <button>Order Now</button>
+            <a class="btn" href="https://wa.me/919876543210?text=Hi, I want to order White Top" target="_blank">
+                Order Now
+            </a>
         </div>
 
     </section>
