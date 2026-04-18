@@ -27,6 +27,11 @@ nav ul {
     list-style: none;
 }
 
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
 /* BANNER */
 .banner {
     position: relative;
@@ -36,34 +41,37 @@ nav ul {
     width: 100%;
     height: 400px;
     object-fit: cover;
-    display: block;
 }
 
+/* dark overlay */
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+}
+
+/* SHOP BUTTON */
 .banner-text {
     position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    color: white;
-}
-
-.banner-text h1 {
-    font-size: 42px;
-    margin: 0;
-}
-
-.banner-text p {
-    font-size: 18px;
-    margin: 10px 0;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
 }
 
 .shop-btn {
     background: gold;
     color: black;
-    padding: 10px 20px;
+    padding: 12px 25px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+.shop-btn:hover {
+    background: orange;
 }
 
 /* CATEGORIES */
@@ -71,7 +79,6 @@ nav ul {
     display: flex;
     gap: 15px;
     justify-content: center;
-    flex-wrap: wrap;
     margin: 20px 0;
 }
 
@@ -137,9 +144,9 @@ html {
 <nav>
     <h2>LASPR</h2>
     <ul>
-        <li><a href="#" style="color:white;">Home</a></li>
-        <li><a href="#shiv" style="color:white;">Categories</a></li>
-        <li><a href="#contact" style="color:white;">Contact</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#shiv">Categories</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
@@ -161,25 +168,70 @@ html {
 <!-- SHIV -->
 <div class="products">
 <h2 id="shiv" style="text-align:center;">Shiv Collection</h2>
-
 <div class="product-grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1542060748-10c28b62716f?w=300">
-<h3>Shiv T-Shirt</h3>
-<p>₹799</p>
-
-<a class="btn whatsapp" href="#">Order on WhatsApp</a>
-<a class="btn amazon" href="#">Buy on Amazon</a>
+<h3>Radha Krishna Print Tee</h3>
+<p>₹450</p>
+<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order this product" target="_blank">
+Order on WhatsApp
+</a>
+<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Radha-Krishn/dp/B0GSK88TD5" target="_blank">
+Buy on Amazon
+</a>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=300">
 <h3>Shiv Graphic Tee</h3>
-<p>₹899</p>
+<p>₹450</p>
+<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order this product" target="_blank">
+Order on WhatsApp
+</a>
+<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Shiv-Shakti/dp/B0GQV59PW6" target="_blank">
+Buy on Amazon
+</a>
+</div>
 
-<a class="btn whatsapp" href="#">Order on WhatsApp</a>
-<a class="btn amazon" href="#">Buy on Amazon</a>
+</div>
+</div>
+
+<!-- BASIC -->
+<div class="products">
+<h2 id="basic" style="text-align:center;">Basic Tees</h2>
+<div class="product-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300">
+<h3>Basic White Tee</h3>
+<p>₹400</p>
+<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order this product" target="_blank">
+Order on WhatsApp
+</a>
+<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Customized-Polyester/dp/B0G6MFN931" target="_blank">
+Buy on Amazon
+</a>
+</div>
+
+</div>
+</div>
+
+<!-- HOODIES -->
+<div class="products">
+<h2 id="hoodies" style="text-align:center;">Hoodies</h2>
+<div class="product-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=300">
+<h3>Black Hoodie</h3>
+<p>₹1000</p>
+<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order this product" target="_blank">
+Order on WhatsApp
+</a>
+<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Pullover-Charcoal/dp/B0G7Z9WC7V" target="_blank">
+Buy on Amazon
+</a>
 </div>
 
 </div>
