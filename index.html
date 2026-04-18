@@ -14,8 +14,8 @@ body {
 
 /* NAVBAR */
 nav {
-    background: #000;
-    color: #fff;
+    background: black;
+    color: white;
     display: flex;
     justify-content: space-between;
     padding: 15px 30px;
@@ -33,58 +33,44 @@ nav a {
 }
 
 /* BANNER */
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .banner {
     position: relative;
 }
 
-.banner img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-}
-
-/* dark overlay */
-.banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.3);
-}
-
-/* SHOP BUTTON */
+/* BUTTON */
 .banner-text {
     position: absolute;
-    bottom: 30px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
 }
 
 .shop-btn {
     background: gold;
-    color: black;
     padding: 12px 25px;
-    text-decoration: none;
     border-radius: 8px;
+    text-decoration: none;
+    color: black;
     font-weight: bold;
-    transition: 0.3s;
-}
-
-.shop-btn:hover {
-    background: orange;
 }
 
 /* CATEGORIES */
 .categories {
     display: flex;
-    gap: 15px;
     justify-content: center;
+    gap: 15px;
     margin: 20px 0;
 }
 
 .cat {
-    background: #000;
-    color: #fff;
+    background: black;
+    color: white;
     padding: 10px 15px;
     border-radius: 8px;
     text-decoration: none;
@@ -97,19 +83,19 @@ nav a {
 
 .product-grid {
     display: flex;
+    justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .card {
-    background: #fff;
+    background: white;
     width: 260px;
     padding: 20px;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: 0.3s;
 }
 
 .card:hover {
@@ -125,8 +111,8 @@ nav a {
     display: block;
     margin: 5px 0;
     padding: 10px;
-    text-decoration: none;
     border-radius: 5px;
+    text-decoration: none;
 }
 
 .whatsapp { background: green; color: white; }
@@ -142,56 +128,49 @@ html {
 
 <!-- NAVBAR -->
 <nav>
-    <h2>LASPR</h2>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#shiv">Categories</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<h2>LASPR</h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#shiv">Categories</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
 </nav>
 
 <!-- BANNER -->
 <div class="banner">
-    <img src="banner.jpg" alt="Banner">
-    <div class="banner-text">
-        <a href="#shiv" class="shop-btn">Shop Now</a>
-    </div>
+<img src="images/banner.jpg">
+<div class="banner-text">
+<a href="#shiv" class="shop-btn">Shop Now</a>
+</div>
 </div>
 
 <!-- CATEGORIES -->
 <div class="categories">
-    <a href="#shiv" class="cat">Shiv Collection</a>
-    <a href="#basic" class="cat">Basic Tees</a>
-    <a href="#hoodies" class="cat">Hoodies</a>
+<a href="#shiv" class="cat">Shiv Collection</a>
+<a href="#basic" class="cat">Basic Tees</a>
+<a href="#hoodies" class="cat">Hoodies</a>
 </div>
 
 <!-- SHIV -->
 <div class="products">
 <h2 id="shiv" style="text-align:center;">Shiv Collection</h2>
+
 <div class="product-grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1542060748-10c28b62716f?w=300">
-<h3>Radha Krishna Print Tee</h3>
+<img src="images/radha.jpg">
+<h3>Radha Krishna Tee</h3>
 <p>₹450</p>
-<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order this product" target="_blank">
-Order on WhatsApp
-</a>
-<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Radha-Krishn/dp/B0GSK88TD5" target="_blank">
-Buy on Amazon
-</a>
+<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order Radha Krishna Tee" target="_blank">Order on WhatsApp</a>
+<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Radha-Krishn/dp/B0GSK88TD5" target="_blank">Buy on Amazon</a>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=300">
-<h3>Shiv Graphic Tee</h3>
+<img src="images/shiv.jpg">
+<h3>Shiv Shakti Graphic Tee</h3>
 <p>₹450</p>
-<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order this product" target="_blank">
-Order on WhatsApp
-</a>
-<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Shiv-Shakti/dp/B0GQV59PW6" target="_blank">
-Buy on Amazon
-</a>
+<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order Shiv Shakti Graphic Tee" target="_blank">Order on WhatsApp</a>
+<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Shiv-Shakti/dp/B0GQV59PW6" target="_blank">Buy on Amazon</a>
 </div>
 
 </div>
@@ -200,18 +179,15 @@ Buy on Amazon
 <!-- BASIC -->
 <div class="products">
 <h2 id="basic" style="text-align:center;">Basic Tees</h2>
+
 <div class="product-grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300">
+<img src="images/basic.jpg">
 <h3>Basic White Tee</h3>
 <p>₹400</p>
-<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order this product" target="_blank">
-Order on WhatsApp
-</a>
-<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Customized-Polyester/dp/B0G6MFN931" target="_blank">
-Buy on Amazon
-</a>
+<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order Basic White Tee" target="_blank">Order on WhatsApp</a>
+<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Customized-Polyester/dp/B0G6MFN931" target="_blank">Buy on Amazon</a>
 </div>
 
 </div>
@@ -220,18 +196,15 @@ Buy on Amazon
 <!-- HOODIES -->
 <div class="products">
 <h2 id="hoodies" style="text-align:center;">Hoodies</h2>
+
 <div class="product-grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=300">
-<h3>Black Hoodie</h3>
+<img src="images/hoodie.jpg">
+<h3>Charcoal Hoodie</h3>
 <p>₹1000</p>
-<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order this product" target="_blank">
-Order on WhatsApp
-</a>
-<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Pullover-Charcoal/dp/B0G7Z9WC7V" target="_blank">
-Buy on Amazon
-</a>
+<a class="btn whatsapp" href="https://wa.me/919873407149?text=I want to order Charcoal Hoodie" target="_blank">Order on WhatsApp</a>
+<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Pullover-Charcoal/dp/B0G7Z9WC7V" target="_blank">Buy on Amazon</a>
 </div>
 
 </div>
