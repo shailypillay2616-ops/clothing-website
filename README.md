@@ -6,7 +6,7 @@ It showcases a product catalog with categories like Shiv Collection, Basic Tees,
 
 ---
 
-## 🔍 Problem Statement (QA Perspective)
+## 🔍 Problem Statement
 
 From a quality assurance and user experience standpoint, small clothing brands often face the following issues:
 
@@ -18,7 +18,7 @@ From a quality assurance and user experience standpoint, small clothing brands o
 
 ---
 
-## 💡 Solution (QA Perspective)
+## 💡 Solution
 
 This website addresses the above challenges by ensuring:
 
