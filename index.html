@@ -13,11 +13,7 @@ body {
 
     background-color: #f5f5f5;
 
-    /* 🔥 WATERMARK BACKGROUND */
-    background-image: url("logo.png");
-    background-repeat: repeat;
-    background-size: 300px;
-    background-position: center;
+   
 }
 
 /* NAVBAR */
@@ -212,7 +208,24 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
+    background: url("logo.png") repeat;
+
+    background-size: 400px;   /* 🔥 spacing fixed */
+
+    opacity: 0.06;            /* 🔥 60% faint feel */
+    filter: blur(3px);        /* 🔥 blur effect */
+
+    z-index: -1;
+    pointer-events: none;
+}
 </style>
 </head>
 
