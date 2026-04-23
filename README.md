@@ -6,23 +6,38 @@ It showcases a product catalog with categories like Shiv Collection, Basic Tees,
 
 ---
 
-## 🎯 Problem Statement
-Small clothing brands often face challenges like:
-- Lack of an affordable online presence  
-- Dependence on marketplaces (Amazon, Flipkart)  
-- No direct communication channel with customers  
-- Poor brand identity and presentation  
+## 🔍 Problem Statement (QA Perspective)
+
+From a quality assurance and user experience standpoint, small clothing brands often face the following issues:
+
+- Inconsistent or unstructured online presence affecting usability
+- Over-reliance on third-party marketplaces, limiting control over user experience
+- Lack of direct and reliable communication channels with customers
+- Poor UI/UX design leading to low engagement and trust issues
+- Limited accessibility and responsiveness across devices
 
 ---
 
-## 💡 Solution
-This website solves the above problems by:
+## 💡 Solution (QA Perspective)
 
-- Providing a **clean and modern product showcase**
-- Enabling **direct customer interaction via WhatsApp**
-- Integrating **Amazon purchase links for trust & convenience**
-- Creating a **brand identity through design, layout, and visuals**
-- Being lightweight and easy to deploy (GitHub Pages)
+This website addresses the above challenges by ensuring:
+
+- A **structured and user-friendly interface** for seamless product browsing
+- **Responsive design** to maintain consistency across mobile and desktop devices
+- **Direct communication via WhatsApp**, improving reliability and user interaction
+- Integration of **Amazon links** to provide trusted purchase pathways
+- A **clean and consistent UI design**, enhancing usability and brand perception
+- Lightweight architecture ensuring **fast load time and easy deployment**
+
+---
+
+## ✅ QA Validation Focus
+
+- Verified responsiveness across screen sizes  
+- Ensured functional navigation (links, buttons, sections)  
+- Validated external integrations (WhatsApp & Amazon links)  
+- Checked layout consistency and visual hierarchy  
+- Tested scroll-based animations for smooth performance  
 
 ---
 
