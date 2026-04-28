@@ -49,6 +49,11 @@ nav ul {
     list-style: none;
 }
 
+/* CART ICON */
+.cart-icon {
+    cursor: pointer;
+}
+
 /* BANNER */
 .banner img {
     width: 100%;
@@ -154,6 +159,19 @@ nav ul {
 .whatsapp { background:black; color:white; }
 .amazon { border:1px solid black; color:black; }
 
+/* CART BOX */
+#cart-box {
+    display:none;
+    position:fixed;
+    right:20px;
+    top:80px;
+    width:300px;
+    background:white;
+    padding:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    z-index:1000;
+}
+
 /* CONTACT */
 #contact {
     text-align:center;
@@ -180,6 +198,10 @@ nav ul {
 <li><a href="#shiv">Categories</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+
+<div class="cart-icon" onclick="toggleCart()">
+🛒 <span id="cart-count">0</span>
+</div>
 </nav>
 
 <!-- BANNER -->
@@ -256,8 +278,17 @@ nav ul {
 <a id="mwa" class="btn whatsapp" target="_blank">Order on WhatsApp</a>
 <a id="mamz" class="btn amazon" target="_blank">Buy on Amazon</a>
 
+<button onclick="addToCart()">Add to Cart</button>
 <button onclick="closeModal()">Close</button>
 </div>
+</div>
+
+<!-- CART BOX -->
+<div id="cart-box">
+<h3>Your Cart</h3>
+<div id="cart-items"></div>
+<p><strong>Total: ₹<span id="cart-total">0</span></strong></p>
+<button onclick="clearCart()">Clear Cart</button>
 </div>
 
 <!-- CONTACT -->
@@ -267,6 +298,11 @@ nav ul {
 </div>
 
 <script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let currentProduct = {};
+
+// OPEN MODAL
 function openModal(title,img,price,amazon){
 document.getElementById("modal").style.display="flex";
 document.getElementById("mimg").src=img;
@@ -277,11 +313,62 @@ document.getElementById("mwa").href =
 "https://wa.me/919953690905?text=I want to order "+title;
 
 document.getElementById("mamz").href = amazon;
+
+currentProduct = {title, price};
 }
 
+// CLOSE
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
+
+// ADD TO CART
+function addToCart(){
+cart.push(currentProduct);
+localStorage.setItem("cart", JSON.stringify(cart));
+updateCart();
+alert("Added to cart");
+}
+
+// UPDATE
+function updateCart(){
+let html="";
+let total=0;
+
+cart.forEach((item,i)=>{
+total+=Number(item.price);
+html+=`<div>${item.title} - ₹${item.price}
+<button onclick="removeItem(${i})">x</button></div>`;
+});
+
+document.getElementById("cart-items").innerHTML=html;
+document.getElementById("cart-total").innerText=total;
+document.getElementById("cart-count").innerText=cart.length;
+}
+
+// REMOVE
+function removeItem(i){
+cart.splice(i,1);
+localStorage.setItem("cart", JSON.stringify(cart));
+updateCart();
+}
+
+// CLEAR
+function clearCart(){
+cart=[];
+localStorage.setItem("cart", JSON.stringify(cart));
+updateCart();
+}
+
+// TOGGLE
+function toggleCart(){
+let box=document.getElementById("cart-box");
+box.style.display=box.style.display==="none"?"block":"none";
+}
+
+// INIT
+updateCart();
+
 </script>
 
 </body>
