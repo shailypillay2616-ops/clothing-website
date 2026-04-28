@@ -26,12 +26,11 @@ body::before {
     background: url("logo.png") no-repeat center;
     background-size: contain;
     opacity: 0.03;
-    filter: blur(2px);
     transform: translate(-50%, -50%);
     z-index: -1;
 }
 
-/* NAV */
+/* NAVBAR */
 nav {
     position: fixed;
     top: 0;
@@ -44,9 +43,24 @@ nav {
     z-index: 1000;
 }
 
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
 /* BANNER */
 .banner img {
     width: 100%;
+}
+
+/* SECTIONS */
+.products {
+    padding: 40px;
+}
+
+h2 {
+    text-align: center;
 }
 
 /* GRID */
@@ -54,7 +68,6 @@ nav {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 25px;
-    padding: 40px;
 }
 
 /* CARD */
@@ -67,7 +80,7 @@ nav {
     width: 100%;
 }
 
-/* HOVER QUICK VIEW */
+/* QUICK VIEW */
 .quick-view {
     position: absolute;
     bottom: 10px;
@@ -121,14 +134,19 @@ nav {
 .amazon { border:1px solid black; color:black; }
 
 /* CART */
-#cart {
+#cart-box {
     position: fixed;
     right: 20px;
     bottom: 20px;
     background: black;
     color: white;
     padding: 10px;
-    cursor: pointer;
+}
+
+/* CONTACT */
+#contact {
+    text-align:center;
+    padding:40px;
 }
 
 </style>
@@ -136,17 +154,24 @@ nav {
 
 <body>
 
+<!-- NAV -->
 <nav>
 <h2>LASPR</h2>
-<div>Cart 🛒 (<span id="cart-count">0</span>)</div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#shiv">Categories</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
+<!-- BANNER -->
 <div class="banner">
 <img src="banner.jpg">
 </div>
 
-<h2 style="text-align:center;">Spiritual Collection</h2>
-
+<!-- SPIRITUAL -->
+<div class="products">
+<h2 id="shiv">Spiritual Collection</h2>
 <div class="product-grid">
 
 <div class="card" onclick="openModal('Radha Krishna Tee','radha.jpg','450')">
@@ -164,46 +189,83 @@ nav {
 </div>
 
 </div>
+</div>
+
+<!-- BASIC -->
+<div class="products">
+<h2>Basic Tees</h2>
+<div class="product-grid">
+
+<div class="card" onclick="openModal('Basic Tee','basic.jpg','400')">
+<img src="basic.jpg">
+<div class="quick-view">Quick View</div>
+<h3>Basic White Tee</h3>
+<p>₹400</p>
+</div>
+
+</div>
+</div>
+
+<!-- HOODIES -->
+<div class="products">
+<h2>Hoodies</h2>
+<div class="product-grid">
+
+<div class="card" onclick="openModal('Charcoal Hoodie','hoodie.jpg','1000')">
+<img src="hoodie.jpg">
+<div class="quick-view">Quick View</div>
+<h3>Charcoal Hoodie</h3>
+<p>₹1000</p>
+</div>
+
+</div>
+</div>
 
 <!-- MODAL -->
 <div id="modal" class="modal">
 <div class="modal-content">
-<img id="modal-img" width="100%">
-<h3 id="modal-title"></h3>
-<p id="modal-price"></p>
+<img id="img" width="100%">
+<h3 id="title"></h3>
+<p id="price"></p>
 
-<a id="whatsapp" class="btn whatsapp" target="_blank">WhatsApp</a>
-<a id="amazon" class="btn amazon" target="_blank">Amazon</a>
+<a id="wa" class="btn whatsapp" target="_blank">WhatsApp</a>
+<a id="amz" class="btn amazon" target="_blank">Amazon</a>
 
-<button onclick="addToCart()">Add to Cart</button>
+<button onclick="addCart()">Add to Cart</button>
 <button onclick="closeModal()">Close</button>
 </div>
 </div>
 
-<div id="cart">Cart</div>
+<!-- CART -->
+<div id="cart-box">Cart: <span id="count">0</span></div>
+
+<!-- CONTACT -->
+<div id="contact">
+<h2>Contact Us</h2>
+<p>WhatsApp: 9953690905</p>
+</div>
 
 <script>
 
-let cart = [];
+let cart = 0;
 
 function openModal(title,img,price){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("modal-title").innerText=title;
-    document.getElementById("modal-img").src=img;
-    document.getElementById("modal-price").innerText="₹"+price;
+document.getElementById("modal").style.display="flex";
+document.getElementById("title").innerText=title;
+document.getElementById("img").src=img;
+document.getElementById("price").innerText="₹"+price;
 
-    document.getElementById("whatsapp").href =
-    "https://wa.me/919953690905?text=I want to order "+title;
-
+document.getElementById("wa").href =
+"https://wa.me/919953690905?text=I want to order "+title;
 }
 
 function closeModal(){
-    document.getElementById("modal").style.display="none";
+document.getElementById("modal").style.display="none";
 }
 
-function addToCart(){
-    cart.push(1);
-    document.getElementById("cart-count").innerText = cart.length;
+function addCart(){
+cart++;
+document.getElementById("count").innerText=cart;
 }
 
 </script>
