@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LASPR Lifestyles Creations</title>
+<title>LASPR</title>
 
 <style>
 
 /* BASE */
 body {
     margin: 0;
-    padding-top: 80px;
     font-family: 'Segoe UI', sans-serif;
-    background: #ffffff;
+    background: #fff;
+    padding-top: 80px;
 }
 
-/* SUBTLE WATERMARK */
+/* WATERMARK */
 body::before {
     content: "";
     position: fixed;
@@ -25,147 +25,110 @@ body::before {
     height: 600px;
     background: url("logo.png") no-repeat center;
     background-size: contain;
-    opacity: 0.04;
+    opacity: 0.03;
     filter: blur(2px);
     transform: translate(-50%, -50%);
     z-index: -1;
-    pointer-events: none;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0,0,0,0.9);
+    background: black;
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 15px 30px;
-    box-sizing: border-box;
     z-index: 1000;
 }
 
-nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
 /* BANNER */
-.banner {
-    position: relative;
-}
-
 .banner img {
     width: 100%;
-    display: block;
 }
 
-.banner-text {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 2;
-}
-
-.shop-btn {
-    background: black;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 25px;
-    text-decoration: none;
-}
-
-/* CATEGORIES */
-.categories {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 30px 0;
-}
-
-.cat {
-    background: white;
-    border: 1px solid #ddd;
-    padding: 10px 18px;
-    border-radius: 20px;
-    text-decoration: none;
-    color: black;
-}
-
-/* PRODUCTS */
-.products {
-    padding: 60px 30px;
-}
-
-/* GRID (LAZOSTORE STYLE) */
+/* GRID */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    padding: 40px;
 }
 
 /* CARD */
 .card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
+    position: relative;
+    cursor: pointer;
 }
 
 .card img {
     width: 100%;
 }
 
-/* TEXT */
-.card h3 {
-    font-size: 14px;
-    margin: 10px;
-}
-
-.card p {
-    margin: 0 10px 10px;
-    color: #555;
-}
-
-/* BUTTONS */
-.btn {
-    display: block;
-    margin: 5px 10px 10px;
-    padding: 10px;
-    border-radius: 6px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.whatsapp {
+/* HOVER QUICK VIEW */
+.quick-view {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     background: black;
     color: white;
+    padding: 8px 15px;
+    opacity: 0;
+    transition: 0.3s;
 }
 
-.amazon {
-    border: 1px solid black;
-    color: black;
+.card:hover .quick-view {
+    opacity: 1;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
+/* TEXT */
+.card h3, .card p {
+    margin: 5px;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content {
+    background:white;
+    padding:20px;
+    width:300px;
+    text-align:center;
+}
+
+/* BUTTON */
+.btn {
+    display:block;
+    margin:5px;
+    padding:10px;
+    text-decoration:none;
+}
+
+.whatsapp { background:black; color:white; }
+.amazon { border:1px solid black; color:black; }
+
+/* CART */
+#cart {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: black;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
 }
 
 </style>
@@ -173,95 +136,77 @@ nav a {
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
 <h2>LASPR</h2>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#shiv">Categories</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<div>Cart 🛒 (<span id="cart-count">0</span>)</div>
 </nav>
 
-<!-- BANNER -->
 <div class="banner">
-<img src="banner.jpg" alt="Banner">
-<div class="banner-text">
-<a href="#shiv" class="shop-btn">Shop Now</a>
-</div>
+<img src="banner.jpg">
 </div>
 
-<!-- CATEGORIES -->
-<div class="categories">
-<a href="#shiv" class="cat">Shiv Collection</a>
-<a href="#basic" class="cat">Basic Tees</a>
-<a href="#hoodies" class="cat">Hoodies</a>
-</div>
-
-<!-- SHIV -->
-<div class="products">
-<h2 id="shiv" style="text-align:center;">Shiv Collection</h2>
+<h2 style="text-align:center;">Spiritual Collection</h2>
 
 <div class="product-grid">
 
-<div class="card">
+<div class="card" onclick="openModal('Radha Krishna Tee','radha.jpg','450')">
 <img src="radha.jpg">
+<div class="quick-view">Quick View</div>
 <h3>Radha Krishna Tee</h3>
 <p>₹450</p>
-<a class="btn whatsapp" href="https://wa.me/919953690905?text=I want to order Radha Krishna Tee" target="_blank">Order on WhatsApp</a>
-<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Radha-Krishn/dp/B0GSK88TD5" target="_blank">Buy on Amazon</a>
 </div>
 
-<div class="card">
+<div class="card" onclick="openModal('Shiv Graphic Tee','shiv.jpg','450')">
 <img src="shiv.jpg">
-<h3>Shiv Shakti Graphic Tee</h3>
+<div class="quick-view">Quick View</div>
+<h3>Shiv Graphic Tee</h3>
 <p>₹450</p>
-<a class="btn whatsapp" href="https://wa.me/919953690905?text=I want to order Shiv Shakti Graphic Tee" target="_blank">Order on WhatsApp</a>
-<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Shiv-Shakti/dp/B0GQV59PW6" target="_blank">Buy on Amazon</a>
 </div>
 
 </div>
-</div>
 
-<!-- BASIC -->
-<div class="products">
-<h2 id="basic" style="text-align:center;">Basic Tees</h2>
+<!-- MODAL -->
+<div id="modal" class="modal">
+<div class="modal-content">
+<img id="modal-img" width="100%">
+<h3 id="modal-title"></h3>
+<p id="modal-price"></p>
 
-<div class="product-grid">
+<a id="whatsapp" class="btn whatsapp" target="_blank">WhatsApp</a>
+<a id="amazon" class="btn amazon" target="_blank">Amazon</a>
 
-<div class="card">
-<img src="basic.jpg">
-<h3>Basic White Tee</h3>
-<p>₹400</p>
-<a class="btn whatsapp" href="https://wa.me/919953690905?text=I want to order Basic White Tee" target="_blank">Order on WhatsApp</a>
-<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Customized-Polyester/dp/B0G6MFN931" target="_blank">Buy on Amazon</a>
-</div>
-
+<button onclick="addToCart()">Add to Cart</button>
+<button onclick="closeModal()">Close</button>
 </div>
 </div>
 
-<!-- HOODIES -->
-<div class="products">
-<h2 id="hoodies" style="text-align:center;">Hoodies</h2>
+<div id="cart">Cart</div>
 
-<div class="product-grid">
+<script>
 
-<div class="card">
-<img src="hoodie.jpg">
-<h3>Charcoal Hoodie</h3>
-<p>₹1000</p>
-<a class="btn whatsapp" href="https://wa.me/919953690905?text=I want to order Charcoal Hoodie" target="_blank">Order on WhatsApp</a>
-<a class="btn amazon" href="https://www.amazon.in/LASPR-Lifestyle-Creations-Pullover-Charcoal/dp/B0G7Z9WC7V" target="_blank">Buy on Amazon</a>
-</div>
+let cart = [];
 
-</div>
-</div>
+function openModal(title,img,price){
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("modal-title").innerText=title;
+    document.getElementById("modal-img").src=img;
+    document.getElementById("modal-price").innerText="₹"+price;
 
-<!-- CONTACT -->
-<div id="contact" style="text-align:center; padding:40px;">
-<h2>Contact Us</h2>
-<p>WhatsApp: 9953690905</p>
-</div>
+    document.getElementById("whatsapp").href =
+    "https://wa.me/919953690905?text=I want to order "+title;
+
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+function addToCart(){
+    cart.push(1);
+    document.getElementById("cart-count").innerText = cart.length;
+}
+
+</script>
 
 </body>
 </html>
