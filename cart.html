@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - LASPR</title>
 
+<style>
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin:0;
+    background:#fff;
+}
+
+/* NAV */
+nav {
+    background:black;
+    color:white;
+    padding:15px 30px;
+}
+
+/* CONTAINER */
+.container {
+    padding:40px;
+}
+
+/* ITEM */
+.item {
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid #ddd;
+    padding:10px 0;
+}
+
+button {
+    background:black;
+    color:white;
+    padding:5px 10px;
+    border:none;
+    cursor:pointer;
+}
+
+.total {
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>LASPR - Cart</h2>
+</nav>
+
+<div class="container">
+
+<div id="cart-items"></div>
+
+<p class="total">Total: ₹<span id="total">0</span></p>
+
+<button onclick="clearCart()">Clear Cart</button>
+
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function loadCart(){
+let html="";
+let total=0;
+
+cart.forEach((item,i)=>{
+total += Number(item.price);
+
+html += `
+<div class="item">
+<span>${item.title}</span>
+<span>₹${item.price}</span>
+<button onclick="removeItem(${i})">Remove</button>
+</div>`;
+});
+
+document.getElementById("cart-items").innerHTML = html;
+document.getElementById("total").innerText = total;
+}
+
+function removeItem(i){
+cart.splice(i,1);
+localStorage.setItem("cart", JSON.stringify(cart));
+loadCart();
+}
+
+function clearCart(){
+cart=[];
+localStorage.setItem("cart", JSON.stringify(cart));
+loadCart();
+}
+
+loadCart();
+
+</script>
+
+</body>
+</html>
