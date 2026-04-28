@@ -7,100 +7,164 @@
 
 <style>
 
+/* BASE */
 body {
-margin:0;
-font-family: 'Segoe UI', sans-serif;
-background:#fff;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fff;
+    padding-top: 80px;
 }
 
-/* NAV */
+/* WATERMARK */
+body::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: url("logo.png") no-repeat center;
+    background-size: contain;
+    opacity: 0.03;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* NAVBAR */
 nav {
-position:fixed;
-top:0;
-width:100%;
-background:black;
-color:white;
-display:flex;
-justify-content:space-between;
-padding:15px 30px;
-z-index:1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
 }
 
 /* BANNER */
 .banner img {
-width:100%;
-margin-top:60px;
+    width: 100%;
 }
 
-/* GRID */
+/* CATEGORIES */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.cat {
+    border: 1px solid #ddd;
+    padding: 10px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+/* PRODUCTS */
 .products {
-padding:50px;
+    padding: 50px 30px;
 }
 
 .product-grid {
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
 /* CARD */
 .card {
-cursor:pointer;
-transition:0.3s;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .card img {
-width:100%;
+    width: 100%;
 }
 
 .card:hover {
-transform:scale(1.02);
+    transform: scale(1.02);
+}
+
+/* QUICK VIEW */
+.quick-view {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 8px 15px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card:hover .quick-view {
+    opacity: 1;
 }
 
 /* TEXT */
 .card h3 {
-font-size:14px;
-margin:10px 0 5px;
+    font-size: 14px;
+    margin: 8px;
 }
 
 .card p {
-color:#555;
-}
-
-/* QUICK VIEW */
-.quick {
-position:absolute;
-bottom:10px;
-left:50%;
-transform:translateX(-50%);
-background:black;
-color:white;
-padding:8px;
-opacity:0;
-}
-
-.card:hover .quick {
-opacity:1;
+    margin: 0 8px 10px;
+    color: #555;
 }
 
 /* MODAL */
 .modal {
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-justify-content:center;
-align-items:center;
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
 }
 
 .modal-box {
-background:white;
-padding:20px;
-width:300px;
-text-align:center;
+    background:white;
+    padding:20px;
+    width:300px;
+    text-align:center;
+}
+
+.btn {
+    display:block;
+    margin:5px;
+    padding:10px;
+    text-decoration:none;
+}
+
+.whatsapp { background:black; color:white; }
+.amazon { border:1px solid black; color:black; }
+
+/* CONTACT */
+#contact {
+    text-align:center;
+    padding:40px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .product-grid{
+        grid-template-columns:1fr;
+    }
 }
 
 </style>
@@ -108,29 +172,75 @@ text-align:center;
 
 <body>
 
+<!-- NAV -->
 <nav>
 <h2>LASPR</h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#shiv">Categories</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
+<!-- BANNER -->
 <div class="banner">
 <img src="banner.jpg">
 </div>
 
-<div class="products">
-<h2>Spiritual Collection</h2>
+<!-- CATEGORIES -->
+<div class="categories">
+<a href="#shiv" class="cat">Spiritual Collection</a>
+<a href="#basic" class="cat">Basic Tees</a>
+<a href="#hoodies" class="cat">Hoodies</a>
+</div>
 
+<!-- SPIRITUAL -->
+<div class="products">
+<h2 id="shiv">Spiritual Collection</h2>
 <div class="product-grid">
 
-<div class="card" onclick="openModal('Radha Krishna Tee','radha.jpg',450)">
+<div class="card" onclick="openModal('Radha Krishna Tee','radha.jpg','450','https://www.amazon.in/LASPR-Lifestyle-Creations-Radha-Krishn/dp/B0GSK88TD5')">
 <img src="radha.jpg">
+<div class="quick-view">Quick View</div>
 <h3>Radha Krishna Tee</h3>
 <p>₹450</p>
 </div>
 
-<div class="card" onclick="openModal('Shiv Tee','shiv.jpg',450)">
+<div class="card" onclick="openModal('Shiv Shakti Graphic Tee','shiv.jpg','450','https://www.amazon.in/LASPR-Lifestyle-Creations-Shiv-Shakti/dp/B0GQV59PW6')">
 <img src="shiv.jpg">
-<h3>Shiv Tee</h3>
+<div class="quick-view">Quick View</div>
+<h3>Shiv Shakti Graphic Tee</h3>
 <p>₹450</p>
+</div>
+
+</div>
+</div>
+
+<!-- BASIC -->
+<div class="products">
+<h2 id="basic">Basic Tees</h2>
+<div class="product-grid">
+
+<div class="card" onclick="openModal('Basic White Tee','basic.jpg','400','https://www.amazon.in/LASPR-Lifestyle-Creations-Customized-Polyester/dp/B0G6MFN931')">
+<img src="basic.jpg">
+<div class="quick-view">Quick View</div>
+<h3>Basic White Tee</h3>
+<p>₹400</p>
+</div>
+
+</div>
+</div>
+
+<!-- HOODIES -->
+<div class="products">
+<h2 id="hoodies">Hoodies</h2>
+<div class="product-grid">
+
+<div class="card" onclick="openModal('Charcoal Hoodie','hoodie.jpg','1000','https://www.amazon.in/LASPR-Lifestyle-Creations-Pullover-Charcoal/dp/B0G7Z9WC7V')">
+<img src="hoodie.jpg">
+<div class="quick-view">Quick View</div>
+<h3>Charcoal Hoodie</h3>
+<p>₹1000</p>
 </div>
 
 </div>
@@ -139,33 +249,39 @@ text-align:center;
 <!-- MODAL -->
 <div id="modal" class="modal">
 <div class="modal-box">
-<img id="img" width="100%">
-<h3 id="title"></h3>
-<p id="price"></p>
+<img id="mimg" width="100%">
+<h3 id="mtitle"></h3>
+<p id="mprice"></p>
 
-<a id="wa" target="_blank">Order on WhatsApp</a><br>
-<a id="amz" target="_blank">Buy on Amazon</a><br><br>
+<a id="mwa" class="btn whatsapp" target="_blank">Order on WhatsApp</a>
+<a id="mamz" class="btn amazon" target="_blank">Buy on Amazon</a>
 
 <button onclick="closeModal()">Close</button>
 </div>
 </div>
 
+<!-- CONTACT -->
+<div id="contact">
+<h2>Contact Us</h2>
+<p>WhatsApp: 9953690905</p>
+</div>
+
 <script>
-
-function openModal(title,img,price){
+function openModal(title,img,price,amazon){
 document.getElementById("modal").style.display="flex";
-document.getElementById("img").src=img;
-document.getElementById("title").innerText=title;
-document.getElementById("price").innerText="₹"+price;
+document.getElementById("mimg").src=img;
+document.getElementById("mtitle").innerText=title;
+document.getElementById("mprice").innerText="₹"+price;
 
-document.getElementById("wa").href =
+document.getElementById("mwa").href =
 "https://wa.me/919953690905?text=I want to order "+title;
+
+document.getElementById("mamz").href = amazon;
 }
 
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
-
 </script>
 
 </body>
